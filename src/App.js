@@ -46,27 +46,29 @@ class Index extends Component {
 
   render() {
     return (
-      <Grid container spacing={16}>
-        {this.state.offers.map(offer =>
-          <Grid item xs={4} key={offer.id}>
-            <Card>
-              <CardMedia
-                image={offer.photoCard.thumbnail}
-                alt={offer.title}
-                component="img"
-              />
-              <CardContent>
-                <MainInfo offer={offer} />
-              </CardContent>
-              <CardActions>
-                <Link to={`/${offer.id}`}>
-                  Подробная информация
-                </Link>
-              </CardActions>
-            </Card>
-          </Grid>
-        )}
-      </Grid>
+      <div style={{padding: 16}}>
+        <Grid container spacing={16}>
+          {this.state.offers.map(offer =>
+            <Grid item xs={4} key={offer.id}>
+              <Card>
+                <CardMedia
+                  image={offer.photoCard.thumbnail}
+                  alt={offer.title}
+                  component="img"
+                />
+                <CardContent>
+                  <MainInfo offer={offer} />
+                </CardContent>
+                <CardActions>
+                  <Link to={`/${offer.id}`}>
+                    Подробная информация
+                  </Link>
+                </CardActions>
+              </Card>
+            </Grid>
+          )}
+        </Grid>
+      </div>
     );
   }
 }
