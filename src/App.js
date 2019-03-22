@@ -100,7 +100,7 @@ class AdditionalInfo extends Component {
       <div>
         <img src={this.state.offer.photoCard.thumbnail} alt={this.state.offer.title} />
         <MainInfo offer={this.state.offer} />
-        <Typography component="p">
+        <Typography component="pre">
           Описание:
               {this.state.offer.description}
         </Typography>
