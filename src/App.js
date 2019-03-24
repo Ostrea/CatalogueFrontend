@@ -49,7 +49,7 @@ class Index extends Component {
       <div style={{padding: 16}}>
         <Grid container spacing={16}>
           {this.state.offers.map(offer =>
-            <Grid item xs={4} key={offer.id}>
+            <Grid item lg={4} key={offer.id}>
               <Card>
                 <CardMedia
                   image={offer.photoCard.thumbnail}
