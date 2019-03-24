@@ -138,7 +138,7 @@ const MainInfo = ({offer}) => (
       {offer.periodStart.toLocaleDateString("ru-ru")} - {offer.periodEnd.toLocaleDateString("ru-ru")}
     </Typography>
     <Typography component="p" color="secondary">
-      {offer.minPrice} руб.
+      {offer.minPrice.toLocaleString('ru-ru', {style: 'currency', currency: 'RUB'})}
     </Typography>
   </>
 );
