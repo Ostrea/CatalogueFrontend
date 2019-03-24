@@ -26,6 +26,12 @@ class App extends Component {
   }
 }
 
+const convertFields = (offer) => ({
+  ...offer,
+  periodStart: new Date(offer.periodStart),
+  periodEnd: new Date(offer.periodEnd)
+});
+
 class Index extends Component {
 
   constructor() {
@@ -37,11 +43,7 @@ class Index extends Component {
 
   async componentDidMount() {
     const response = await axios.get('https://localhost:5001/api/values');
-    const data = response.data.map(offer => ({
-      ...offer,
-      periodStart: new Date(offer.periodStart),
-      periodEnd: new Date(offer.periodEnd)
-    }));
+    const data = response.data.map(convertFields);
     this.setState({offers: data});
   }
 
@@ -88,10 +90,7 @@ class AdditionalInfo extends Component {
 
   async componentDidMount() {
     const response = await axios.get(`https://localhost:5001/api/values/${this.props.match.params.id}`);
-    const offer = {...response.data,
-      periodStart: new Date(response.data.periodStart),
-      periodEnd: new Date(response.data.periodEnd)
-    };
+    const offer = convertFields(response.data);
 
     this.setState({offer: offer});
   }
