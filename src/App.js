@@ -101,26 +101,38 @@ class AdditionalInfo extends Component {
     }
 
     return (
-      <div>
-        <img src={this.state.offer.photoCard.thumbnail} alt={this.state.offer.title} />
-        <MainInfo offer={this.state.offer} />
-        <Typography component="pre">
-          Описание:
-              {this.state.offer.description}
-        </Typography>
-        <Typography component="p">
-          Маршрут:
-              {this.state.offer.route.join(', ')}
-        </Typography>
-        {this.state.offer.photoAlbum !== null ?
-          <GridList cellHeight={160} cols={3}>
-            {this.state.offer.photoAlbum.map(el => (
-              <GridListTile key={el.photo} cols={1}>
-                <img src={el.photo} alt={this.state.offer.title} />
-              </GridListTile>
-            ))}
-          </GridList>
-          : null}
+      <div style={{padding: 16}}>
+        <Grid container>
+          <Grid item xs={12}>
+            <img src={this.state.offer.photoCard.thumbnail} alt={this.state.offer.title} />
+          </Grid>
+          <Grid item xs={12}>
+            <MainInfo offer={this.state.offer} />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography component="pre">
+              Описание:<br></br>
+                  {this.state.offer.description}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography component="p">
+              Маршрут:
+                  {this.state.offer.route.join(', ')}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            {this.state.offer.photoAlbum !== null ?
+              <GridList cellHeight={160} cols={3}>
+                {this.state.offer.photoAlbum.map(el => (
+                  <GridListTile key={el.photo} cols={1}>
+                    <img src={el.photo} alt={this.state.offer.title} />
+                  </GridListTile>
+                ))}
+              </GridList>
+              : null}
+          </Grid>
+        </Grid>
       </div>
     );
   }
