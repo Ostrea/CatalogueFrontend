@@ -19,7 +19,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route path="/" exact component={IndexWithWidth} />
-          <Route path="/:id" component={AdditionalInfo} />
+          <Route path="/:id" component={AdditionalInfoWithWidth} />
         </div>
       </Router>
     );
@@ -124,7 +124,7 @@ class AdditionalInfo extends Component {
           </Grid>
           <Grid item xs={12}>
             {this.state.offer.photoAlbum !== null ?
-              <GridList cellHeight={160} cols={3}>
+              <GridList cols={this.props.width === 'xs' ? 1 : 3}>
                 {this.state.offer.photoAlbum.map(el => (
                   <GridListTile key={el.photo} cols={1}>
                     <img src={el.photo} alt={this.state.offer.title} />
@@ -138,6 +138,7 @@ class AdditionalInfo extends Component {
     );
   }
 }
+const AdditionalInfoWithWidth = withWidth()(AdditionalInfo);
 
 const MainInfo = ({offer}) => (
   <>
