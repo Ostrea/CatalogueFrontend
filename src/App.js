@@ -104,7 +104,8 @@ class AdditionalInfo extends Component {
       <div style={{padding: 16}}>
         <Grid container>
           <Grid item xs={12}>
-            <img src={this.state.offer.photoCard.thumbnail} alt={this.state.offer.title} />
+            <img src={this.state.offer.photoCard.thumbnail} alt={this.state.offer.title} 
+              className='image'/>
           </Grid>
           <Grid item xs={12}>
             <MainInfo offer={this.state.offer} />
