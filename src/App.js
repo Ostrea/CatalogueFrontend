@@ -29,7 +29,8 @@ class App extends Component {
 const convertFields = (offer) => ({
   ...offer,
   periodStart: new Date(offer.periodStart),
-  periodEnd: new Date(offer.periodEnd)
+  periodEnd: new Date(offer.periodEnd),
+  minPrice: parseFloat(offer.minPrice)
 });
 
 class Index extends Component {
