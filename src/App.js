@@ -10,6 +10,7 @@ import axios from 'axios'
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import withWidth from '@material-ui/core/withWidth';
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route path="/" exact component={Index} />
+          <Route path="/" exact component={IndexWithWidth} />
           <Route path="/:id" component={AdditionalInfo} />
         </div>
       </Router>
@@ -46,7 +47,9 @@ class Index extends Component {
 
   render() {
     return (
-      <div style={{padding: 16}}>
+      <div style={{
+        padding: this.props.width === 'xs' ? 16 : 48
+      }}>
         <Grid container spacing={16}>
           {this.state.offers.map(offer =>
             <Grid item lg={4} key={offer.id}>
@@ -72,6 +75,7 @@ class Index extends Component {
     );
   }
 }
+const IndexWithWidth = withWidth()(Index);
 
 class AdditionalInfo extends Component {
 
